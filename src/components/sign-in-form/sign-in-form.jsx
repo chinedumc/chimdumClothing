@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import {
 	createAuthUserWithEmailAndPassword,
 	signInWithGooglePopup,
@@ -11,6 +11,8 @@ import FormInput from "../form-input/form-input.component";
 import "./sign-in-form.styles.scss";
 import Button from "../button/button.component";
 
+import { UserContext } from "../../contexts/user.context";
+
 const defaultFormFields = {
 	email: "",
 	password: "",
@@ -21,6 +23,7 @@ const SignInForm = () => {
 	const { email, password } = formFields;
 
 	// console.log(formFields)
+
 
 	const SignInWithGoogle = async () => {
 		const { user } = await signInWithGooglePopup();
@@ -35,7 +38,7 @@ const SignInForm = () => {
 		event.preventDefault();
 
 		try {
-			await signInAuthUserWithEmailAndPassword(email, password);
+			const {user} = await signInAuthUserWithEmailAndPassword(email, password);
 			// const response = await signInAuthUserWithEmailAndPassword(email, password)
 			// console.log(response)
 			resetFormFields();
