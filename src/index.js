@@ -5,7 +5,8 @@ import App from "./App";
 import { UserProvider } from "./contexts/user.context";
 import { CategoriesProvider } from "./contexts/categories.context";
 import "./index.scss";
-import { CartProvider } from "./contexts/cart.context";
+// import { CartProvider } from "./contexts/cart.context";
+import { CartProvider } from "./reducers/cart.reducer";
 
 ReactDOM.render(
 	<React.StrictMode>
